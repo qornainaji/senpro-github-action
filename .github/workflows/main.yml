@@ -1,11 +1,12 @@
 name: Test, Build, and Deploy | Modul 01 - Lab2.2 Senior Project
+
 on:
     push:
         branches: [main]
 
 jobs:
     test-build:
-        run-on: ubuntu-latest
+        runs-on: ubuntu-latest
 
         strategy:
             matrix:
