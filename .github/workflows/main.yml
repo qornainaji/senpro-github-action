@@ -61,7 +61,7 @@ jobs:
                 password: ${{ secrets.PASSWORD }}
                 port: ${{ secrets.PORT }}
                 script: |
-                    eval "$(ssh-agents)"
+                    eval "$(ssh-agents -s)"
                     ssh-add-/.ssh/vm_senpro_modul2_67
 
                     echo "Cek folder project";
