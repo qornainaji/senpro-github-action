@@ -62,17 +62,18 @@ jobs:
                 port: ${{ secrets.PORT }}
                 script: |
                     eval "$(ssh-agents -s)"
-                    ssh-add-/.ssh/vm_senpro_modul2_67
-
+                    ssh-add ~/.ssh/vm_senpro_modul2_67
                     echo "Cek folder project";
-                    [ -d "$HOME/senpro/481767/modul02/senpro-github-action/" ] && {
-                    echo "Repository belum di-clone. Cloning..."
-                    mkdir -p /senpro/481767/modul02;
-                    cd -/senpro/481767/modu102;
-                    git clone git@github.com:qornainaji/senpro-github-action.git;
-                    } || {
-                    echo "Repository sudah ada. Building...";
-                    cd -/senpro/481767/modul02/senpro-github-action;
-                    git restore.
-                    git pull origin main;
+                    [ ! -d "${HOME}/senpro/481767/modul02/senpro-github-action/" ] && 
+                    {
+                        echo "Repository belum di-clone. Cloning...";
+                        mkdir -p /senpro/481767/modul02;
+                        cd ~/senpro/481767/modu102;
+                        git clone git@github.com:qornainaji/senpro-github-action.git;
+                    } || 
+                    {
+                        echo "Repository sudah ada. Building...";
+                        cd ~/senpro/481767/modul02/senpro-github-action;
+                        git restore .;
+                        git pull origin main;
                     }
